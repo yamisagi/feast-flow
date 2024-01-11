@@ -15,13 +15,12 @@ const ProductCard = ({ item }) => {
       {/*  To override the default padding */}
       <CardHeader className='p-1'>
         <img src={image} className='w-full h-64 object-cover rounded-lg' />
-        <CardTitle className='text-center'>
-          <h3>{name}</h3>
-        </CardTitle>
+        <CardTitle className='text-center'></CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription>
-          <p className='text-sm text-center text-muted-foreground'>{price}$</p>
+        <h3 className='text-xl font-bold text-center text-slate-900'>{name}</h3>
+        <CardDescription className='text-sm text-center text-muted-foreground'>
+          {price}$
         </CardDescription>
         <p className='text-sm text-center text-muted-background mt-2'>
           {description}

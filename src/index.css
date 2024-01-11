@@ -83,3 +83,20 @@
     @apply mx-auto font-bold text-white bg-zinc-900 rounded-lg px-4 py-2 hover:bg-zinc-800 hover:scale-105 transition duration-300 ease-in-out;
   }
 }
+
+.nav {
+  /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+  animation: fadeOut linear;
+  animation-fill-mode: forwards;
+  animation-timeline: scroll();
+  animation-range: exit 0% 20%;
+  scale: 0.8;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    scale: 1;
+  }
+}
