@@ -9,12 +9,11 @@ import {
 } from '../ui/card';
 
 const ProductCard = ({ item }) => {
-  const { id, name, price, description, image } = item;
+  const { name, price, description, image } = item;
   return (
-    <Card className='w-64 bg-zinc-200'>
-      <CardHeader
-        className='p-2' // To override the default padding
-      >
+    <Card className='w-64 gap-y-1 bg-zinc-200 flex flex-col justify-between'>
+      {/*  To override the default padding */}
+      <CardHeader className='p-1'>
         <img src={image} className='w-full h-64 object-cover rounded-lg' />
         <CardTitle className='text-center'>
           <h3>{name}</h3>
@@ -28,10 +27,8 @@ const ProductCard = ({ item }) => {
           {description}
         </p>
       </CardContent>
-      <CardFooter>
-        <button className='mx-auto font-bold text-white bg-zinc-900 rounded-lg px-4 py-2 hover:bg-zinc-800'>
-          Add to Cart
-        </button>
+      <CardFooter className='flex justify-center items-center '>
+        <button className='cart-button'>Add to Cart</button>
       </CardFooter>
     </Card>
   );
