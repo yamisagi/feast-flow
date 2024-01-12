@@ -76,6 +76,9 @@
 }
 
 @layer components {
+  .body {
+    @apply flex flex-col items-center justify-center w-full h-full mt-20;
+  }
   .body-grid {
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4;
   }

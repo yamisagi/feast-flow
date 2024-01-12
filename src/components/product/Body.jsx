@@ -6,7 +6,7 @@ const Body = ({ items = [] }) => {
   const { meals } = useMeals();
 
   return (
-    <div className='flex flex-col items-center justify-center w-full h-full mt-20'>
+    <div className='body'>
       <ul className='body-grid'>
         {meals.map((item) => (
           <ProductCard key={item.id} item={item} />
