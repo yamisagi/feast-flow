@@ -67,6 +67,16 @@ In this project, I am building a food order app named Feat Flow with React and T
 ## Roadmap
 
 - [x] Project Setup
+- [x] Add Tailwind CSS
+- [x] Add SHACDN/UI
+- [x] Create Header Component
+- [x] Update Styles 
+- [x] Create Body Component 
+- [x] Implement Backend API 
+- [x] Create Card Component with SHACDN/UI
+
+
+
 
 (Still working on it 🤗)
 
