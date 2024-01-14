@@ -74,6 +74,8 @@ In this project, I am building a food order app named Feat Flow with React and T
 - [x] Create Body Component 
 - [x] Implement Backend API 
 - [x] Create Card Component with SHACDN/UI
+- [x] Implement Services
+- [x] Implement useMeals Custom Hook
 
 
 
