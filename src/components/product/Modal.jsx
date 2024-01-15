@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
+import { currencyFormat } from '@/util/format';
 
 import {
   Dialog,
@@ -13,6 +14,15 @@ import { LucideShoppingCart } from 'lucide-react';
 
 const Modal = () => {
   const { state } = useContext(CartContext);
+  const hideSameID = state.cart.reduce((acc, current) => {
+    const x = acc.find((item) => item.id === current.id);
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, []);
+
   return (
     <Dialog>
       <DialogTrigger>
@@ -25,10 +35,29 @@ const Modal = () => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle className='text-2xl font-bold text-center text-slate-100'>
+            Your Cart
+          </DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            You have {state.cart.length} items in your cart.
+            <ul className='mt-4 w-full'>
+              {hideSameID.map((item) => {
+                return (
+                  <li key={item.id} className='flex w-full justify-between'>
+                    <p className='text-slate-100 min-w-32'>{item.name}</p>
+                    <p className='text-red-500 min-w-32 text-center'>
+                      x{state.cart.filter((i) => i.id === item.id).length}
+                    </p>
+                    <p className='min-w-32 text-slate-100 text-right'>
+                      {currencyFormat.format(item.price)}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className='text-center text-slate-100 mt-10'>
+              Total: {currencyFormat.format(state?.total)}
+            </p>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

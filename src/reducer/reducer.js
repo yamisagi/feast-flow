@@ -1,3 +1,5 @@
+import { currencyFormat } from "@/util/format";
+
 const initialState = {
   cart: [],
   amount: 0,
@@ -5,13 +7,17 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  const stringToFloat = (string) => {
+    return parseFloat(string);
+  };
+  const price = stringToFloat(action.payload.price);
   switch (action.type) {
     case 'ADD_TO_CART':
       return {
         ...state,
         cart: [...state.cart, action.payload],
         amount: state.amount + 1,
-        total: state.total + action.payload.price,
+        total: state.total + price,
       };
     case 'REMOVE_FROM_CART':
       if (state.amount > 0) {
@@ -19,7 +25,7 @@ const reducer = (state = initialState, action) => {
           ...state,
           cart: state.cart.filter((item) => item.id !== action.payload.id),
           amount: state.amount - 1,
-          total: state.total - action.payload.price,
+          total: state.total - price,
         };
       }
       break;
