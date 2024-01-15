@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
-import { currencyFormat } from '@/util/format';
 
 import {
   Dialog,
@@ -11,11 +10,12 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { LucideShoppingCart } from 'lucide-react';
+import ItemList from './ItemList';
 
 const Modal = () => {
   const { state } = useContext(CartContext);
   return (
-    <Dialog>
+    <Dialog aria-label='Shopping Cart' asChild closeOnOutsideClick>
       <DialogTrigger asChild>
         <button>
           <LucideShoppingCart className='w-8 h-8 text-white fill-current' />
@@ -29,27 +29,11 @@ const Modal = () => {
           <DialogTitle className='text-2xl font-bold text-center text-slate-100'>
             Your Cart
           </DialogTitle>
-          <DialogDescription>
-            You have {state?.cart.length} items in your cart.
-            <ul className='mt-4 w-full'>
-              {state?.cart.map((item) => {
-                return (
-                  <li key={item.id} className='flex w-full justify-between'>
-                    <p className='text-slate-100 min-w-32'>{item.name}</p>
-                    <p className='text-red-500 min-w-32 text-center'>
-                      x{item?.amount}
-                    </p>
-                    <p className='min-w-32 text-slate-100 text-right'>
-                      {currencyFormat.format(item.price)}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-            <p className='text-center text-slate-100 mt-10'>
-              Total: {currencyFormat.format(state?.total)}
-            </p>
+          <DialogDescription className='text-center'>
+            You have {state?.cart.length}{' '}
+            {state.cart.length > 1 ? 'items' : 'item'} in your cart.
           </DialogDescription>
+          <ItemList />
         </DialogHeader>
       </DialogContent>
     </Dialog>
