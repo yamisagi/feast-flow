@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { currencyFormat } from '@/util/format';
-import { BadgeMinus, BadgePlus } from 'lucide-react';
+import { BadgeMinus, BadgePlus, CreditCard } from 'lucide-react';
 import { CartContext } from '@/context/CartContext';
 
 const ItemList = () => {
@@ -40,6 +40,28 @@ const ItemList = () => {
           </>
         )}
       </p>
+      <button>
+        <div
+          className='flex items-center justify-center  mt-10'
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          <div className='relative flex flex-col items-center'>
+            <CreditCard
+              size={32}
+              color='green'
+              className='animate-neon-glow ring-offset-0'
+            />
+            <span className='absolute w-4 h-4 text-xs font-bold text-center text-white rounded-full bg-zinc-500/50 backdrop-blur-sm -top-1 -right-1'>
+              {state?.cart.length}
+            </span>
+            <span
+              className='animate-neon-glow text-xs font-bold mt-1 text-green-500'
+            >Pay</span>
+          </div>
+        </div>
+      </button>
     </>
   );
 };

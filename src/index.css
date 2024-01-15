@@ -35,7 +35,7 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-
+    --neon-green: 120 96.58% 22.94%;
     --radius: 0.5rem;
   }
 
@@ -63,7 +63,7 @@
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
+    --neon-green: 120 96.58% 22.94%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;

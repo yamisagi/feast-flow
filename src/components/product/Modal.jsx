@@ -31,8 +31,11 @@ const Modal = () => {
             Your Cart
           </DialogTitle>
           <DialogDescription className='text-center'>
-            You have {state?.cart.length}{' '}
-            {state?.cart.length > 1 ? 'items' : 'item'} in your cart.
+            {
+              state?.cart.length > 0
+                ? 'Here are the items you added to your cart 😋'
+                : 'Your cart is empty'
+            }
           </DialogDescription>
           <ItemList />
         </DialogHeader>
