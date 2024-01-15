@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
     case 'DEC_AMOUNT':
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload.id),
+        cart: [...state.cart, action.payload],
         amount: state.amount - 1,
         total: state.total - action.payload.price,
       };

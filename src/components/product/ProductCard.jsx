@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 import {
   Card,
   CardHeader,
@@ -12,7 +13,10 @@ import { currencyFormat } from '@/util/format';
 const ProductCard = ({ item }) => {
   const { name, price, description, image } = item;
   const prefix = import.meta.env.VITE_API_URL;
-
+  const { dispatch } = useContext(CartContext);
+  const addToCart = () => {
+    dispatch({ type: 'ADD_TO_CART', payload: item });
+  };
   return (
     <Card className='w-64 gap-y-1 bg-zinc-200 flex flex-col justify-between'>
       {/*  To override the default padding */}
@@ -33,7 +37,9 @@ const ProductCard = ({ item }) => {
         </p>
       </CardContent>
       <CardFooter className='flex justify-center items-center '>
-        <button className='cart-button'>Add to Cart</button>
+        <button className='cart-button' onClick={addToCart}>
+          Add to Cart
+        </button>
       </CardFooter>
     </Card>
   );
