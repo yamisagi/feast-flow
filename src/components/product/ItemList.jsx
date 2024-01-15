@@ -4,16 +4,9 @@ import { BadgeMinus, BadgePlus } from 'lucide-react';
 import { CartContext } from '@/context/CartContext';
 
 const ItemList = () => {
-  const { state, dispatch } = useContext(CartContext);
-  const handleAdd = (item) => {
-    dispatch({ type: 'ADD_TO_CART', payload: item });
-  };
-  const handleRemove = (item) => {
-    dispatch({ type: 'REMOVE_FROM_CART', payload: item });
-  };
+  const { state, cartFuncs } = useContext(CartContext);
 
-  console.log(currencyFormat.format(state?.total));
-
+  const { addToCart, removeFromCart } = cartFuncs;
   return (
     <>
       <ul className='mt-4 w-full'>
@@ -25,13 +18,13 @@ const ItemList = () => {
                 x{item?.amount}
               </p>
               <section className='flex items-center justify-between min-w-32'>
-                <button onClick={() => handleAdd(item)} className='mr-2'>
+                <button onClick={() => addToCart(item)} className='mr-2'>
                   <BadgePlus size={16} color='green' />
                 </button>
                 <p className='text-slate-100 text-right'>
                   {currencyFormat.format(item.price)}
                 </p>
-                <button onClick={() => handleRemove(item)} className='ml-2'>
+                <button onClick={() => removeFromCart(item)} className='ml-2'>
                   <BadgeMinus size={16} color='red' />
                 </button>
               </section>

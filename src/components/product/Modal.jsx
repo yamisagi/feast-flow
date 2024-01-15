@@ -14,6 +14,7 @@ import ItemList from './ItemList';
 
 const Modal = () => {
   const { state } = useContext(CartContext);
+  console.log(state.cart);
   return (
     <Dialog aria-label='Shopping Cart' asChild closeOnOutsideClick>
       <DialogTrigger asChild>
@@ -31,7 +32,7 @@ const Modal = () => {
           </DialogTitle>
           <DialogDescription className='text-center'>
             You have {state?.cart.length}{' '}
-            {state.cart.length > 1 ? 'items' : 'item'} in your cart.
+            {state?.cart.length > 1 ? 'items' : 'item'} in your cart.
           </DialogDescription>
           <ItemList />
         </DialogHeader>

@@ -10,8 +10,18 @@ const CartProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const cartFuncs = {
+    addToCart: (item) => {
+      dispatch({ type: 'ADD_TO_CART', payload: item });
+    },
+    removeFromCart: (item) => {
+      dispatch({ type: 'REMOVE_FROM_CART', payload: item });
+    },
+  };
+
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ state, cartFuncs }}>
       {children}
     </CartContext.Provider>
   );
