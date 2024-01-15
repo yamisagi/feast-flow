@@ -6,7 +6,6 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const initialState = {
     cart: [],
-    amount: 0,
     total: 0,
   };
 

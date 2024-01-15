@@ -25,10 +25,11 @@ const ProductCard = ({ item }) => {
           src={`${prefix + image}`}
           className='w-full h-64 object-cover rounded-lg'
         />
-        <CardTitle className='text-center'></CardTitle>
+        <CardTitle className='text-xl font-bold text-center text-slate-900 mt-3'>
+          {name}
+        </CardTitle>
       </CardHeader>
-      <CardContent>
-        <h3 className='text-xl font-bold text-center text-slate-900'>{name}</h3>
+      <CardContent className='flex flex-col flex-grow items-center mb-5'>
         <CardDescription className='text-sm text-center text-muted-foreground'>
           {currencyFormat.format(price)}
         </CardDescription>
