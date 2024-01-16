@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/drawer';
 import ProceedForm from './ProceedForm';
 
-const ProceedDrawer = ({ children, open, setOpen }) => {
+const ProceedDrawer = ({ children, open, setOpen, setModalOpen }) => {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>{children}</DrawerTrigger>
@@ -24,10 +24,10 @@ const ProceedDrawer = ({ children, open, setOpen }) => {
             We&apos;ll need some information to get you started.
           </DrawerDescription>
         </DrawerHeader>
-        <ProceedForm openChanged={setOpen} />
+        <ProceedForm openChanged={setOpen} setModalOpen={setModalOpen} />
         <DrawerFooter>
           <Button>
-            <DrawerClose asChild>
+            <DrawerClose asChild onClick={() => setModalOpen(false)}>
               <span>Cancel</span>
             </DrawerClose>
           </Button>

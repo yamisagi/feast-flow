@@ -14,8 +14,13 @@ import ItemList from './ItemList';
 
 const Modal = () => {
   const { state } = useContext(CartContext);
+  const [modalOpen, setModalOpen] = React.useState(false);
   return (
-    <Dialog aria-label='Shopping Cart'>
+    <Dialog
+      aria-label='Shopping Cart'
+      open={modalOpen}
+      onOpenChange={setModalOpen}
+    >
       <DialogTrigger asChild>
         <button>
           <LucideShoppingCart className='w-8 h-8 text-white fill-current' />
@@ -34,7 +39,9 @@ const Modal = () => {
               ? 'Here are the items you added to your cart 😋'
               : 'Your cart is empty'}
           </DialogDescription>
-          <ItemList />
+          <ItemList 
+            setModalOpen={setModalOpen}
+          />
         </DialogHeader>
       </DialogContent>
     </Dialog>

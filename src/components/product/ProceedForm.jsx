@@ -29,7 +29,7 @@ const formSchema = z.object({
   ),
 });
 
-const ProceedForm = ({ openChanged }) => {
+const ProceedForm = ({ openChanged, setModalOpen }) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     mode: 'onBlur',
@@ -40,6 +40,9 @@ const ProceedForm = ({ openChanged }) => {
     },
   });
 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <Form {...form}>
       <form
@@ -50,8 +53,9 @@ const ProceedForm = ({ openChanged }) => {
             form.trigger();
             return;
           }
-          form.handleSubmit();
+          form.handleSubmit(onSubmit)();
           openChanged(false);
+          setModalOpen(false);
         }}
       >
         <FormField

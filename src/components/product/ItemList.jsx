@@ -2,10 +2,9 @@ import React, { useContext } from 'react';
 import { currencyFormat } from '@/util/format';
 import { BadgeMinus, BadgePlus, CreditCard } from 'lucide-react';
 import { CartContext } from '@/context/CartContext';
-import { DialogClose } from '../ui/dialog';
 import ProceedDrawer from './ProceedDrawer';
-import { DrawerTrigger, DrawerPortal } from '../ui/drawer';
-const ItemList = () => {
+
+const ItemList = ({setModalOpen}) => {
   const { state, cartFuncs } = useContext(CartContext);
   const { addToCart, removeFromCart } = cartFuncs;
   const [open, setOpen] = React.useState();
@@ -44,7 +43,7 @@ const ItemList = () => {
         )}
       </p>
       {state?.cart.length > 0 ? (
-        <ProceedDrawer open={open} setOpen={setOpen}>
+        <ProceedDrawer open={open} setOpen={setOpen} setModalOpen={setModalOpen}>
           <div className='mt-5 w-fit mx-auto'>
             <div className='relative flex flex-col items-center '>
               <CreditCard
