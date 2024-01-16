@@ -75,7 +75,18 @@ In this project, I am building a food order app named Feat Flow with React and T
 - [x] Implement Backend API 
 - [x] Create Card Component with SHACDN/UI
 - [x] Implement Services
-- [x] Implement useMeals Custom Hook
+- [x] Implement useHttp Custom Hook
+- [x] Implement Form Component with SHACDN/UI
+- [x] Add Form Validation 
+- [x] Implement Drawer & Modal Components with SHACDN/UI
+- [x] Implement Cart Context
+- [x] Implement Reducer for Cart Context
+- [x] Fix Fetching & Posting Data Bugs
+- [x] Create Shimmer Effect for Loading State
+- [x] Implement Error & Loading fallbacks 
+- [x] Clean up the code 🧹
+- [x] Project Finished 🎉 
+- [ ] Deploy the app to Netlify 🚀
 
 
 
