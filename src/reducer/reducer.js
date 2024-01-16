@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
   const stringToFloat = (string) => {
     return parseFloat(string);
   };
-  const price = stringToFloat(action.payload.price);
+  const price = stringToFloat(action.payload?.price ?? 0);
 
   switch (action.type) {
     case 'ADD_TO_CART': {
@@ -66,6 +66,13 @@ const reducer = (state = initialState, action) => {
         total: total - price,
       };
     }
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cart: [],
+        total: 0,
+        open: false,
+      };
     default:
       return state;
   }

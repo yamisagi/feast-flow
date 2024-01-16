@@ -18,6 +18,9 @@ const CartProvider = ({ children }) => {
     removeFromCart: (item) => {
       dispatch({ type: 'REMOVE_FROM_CART', payload: item });
     },
+    clearCart: () => {
+      dispatch({ type: 'CLEAR_CART' });
+    },
   };
 
   return (

@@ -16,7 +16,7 @@ const Modal = () => {
   const { state } = useContext(CartContext);
   console.log(state.cart);
   return (
-    <Dialog aria-label='Shopping Cart' asChild closeOnOutsideClick>
+    <Dialog aria-label='Shopping Cart'>
       <DialogTrigger asChild>
         <button>
           <LucideShoppingCart className='w-8 h-8 text-white fill-current' />
@@ -31,11 +31,9 @@ const Modal = () => {
             Your Cart
           </DialogTitle>
           <DialogDescription className='text-center'>
-            {
-              state?.cart.length > 0
-                ? 'Here are the items you added to your cart 😋'
-                : 'Your cart is empty'
-            }
+            {state?.cart.length > 0
+              ? 'Here are the items you added to your cart 😋'
+              : 'Your cart is empty'}
           </DialogDescription>
           <ItemList />
         </DialogHeader>
