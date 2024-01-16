@@ -87,7 +87,7 @@ const ProceedForm = ({ openChanged, setModalOpen }) => {
             }
             form.handleSubmit(onSubmit)();
             if (!isLoading && error === null) {
-              console.log(isLoading, error, data);
+              console.log(isLoading, error);
               cartFuncs.clearCart();
               openChanged(false);
               setModalOpen(false);

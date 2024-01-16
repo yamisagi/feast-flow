@@ -16,14 +16,13 @@ const sendHttpRequest = async ({ url, config }) => {
 
 const useHttp = ({ url, config, initialValue }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState();
   const [data, setData] = useState(initialValue);
 
   const sendRequest = useCallback(
     async (data) => {
       try {
         setIsLoading(true);
-        setError(null);
         const responseData = await sendHttpRequest({
           url,
           config: { ...config, body: data },
@@ -31,8 +30,10 @@ const useHttp = ({ url, config, initialValue }) => {
         if (!responseData) {
           throw new Error('Request failed!');
         }
+        setError(null);
         setData(responseData);
       } catch (error) {
+        console.log('error', error);
         setError(error.message || 'Something went wrong!');
       } finally {
         setIsLoading(false);
