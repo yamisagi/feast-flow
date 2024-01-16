@@ -71,7 +71,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         cart: [],
         total: 0,
-        open: false,
       };
     default:
       return state;

@@ -3,10 +3,13 @@ import { currencyFormat } from '@/util/format';
 import { BadgeMinus, BadgePlus, CreditCard } from 'lucide-react';
 import { CartContext } from '@/context/CartContext';
 import { DialogClose } from '../ui/dialog';
+import ProceedDrawer from './ProceedDrawer';
+import { DrawerTrigger, DrawerPortal } from '../ui/drawer';
 const ItemList = () => {
   const { state, cartFuncs } = useContext(CartContext);
   const { addToCart, removeFromCart } = cartFuncs;
-
+  const [open, setOpen] = React.useState();
+  console.log(state);
   return (
     <>
       <ul className='mt-4 w-full'>
@@ -40,14 +43,15 @@ const ItemList = () => {
           </>
         )}
       </p>
-      <button className='w-fit mx-auto' onClick={cartFuncs.clearCart}>
-        <DialogClose>
-          <div className='mt-5'>
+      {state?.cart.length > 0 ? (
+        <ProceedDrawer open={open} setOpen={setOpen}>
+          <div className='mt-5 w-fit mx-auto'>
             <div className='relative flex flex-col items-center '>
               <CreditCard
                 size={32}
                 color='green'
                 className='animate-neon-glow ring-offset-0'
+                onClick={() => setOpen(true)}
               />
               <span className='absolute w-4 h-4 text-xs font-bold text-center text-white rounded-full bg-zinc-500/50 backdrop-blur-sm -top-1 -right-1'>
                 {state?.cart.length}
@@ -57,8 +61,8 @@ const ItemList = () => {
               </span>
             </div>
           </div>
-        </DialogClose>
-      </button>
+        </ProceedDrawer>
+      ) : null}
     </>
   );
 };

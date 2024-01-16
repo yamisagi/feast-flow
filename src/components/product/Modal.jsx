@@ -14,7 +14,6 @@ import ItemList from './ItemList';
 
 const Modal = () => {
   const { state } = useContext(CartContext);
-  console.log(state.cart);
   return (
     <Dialog aria-label='Shopping Cart'>
       <DialogTrigger asChild>
