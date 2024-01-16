@@ -15,43 +15,36 @@ const sendHttpRequest = async ({ url, config }) => {
 };
 
 const useHttp = ({ url, config, initialValue }) => {
-  // If we don't use persistConfig, the useEffect will run infinitely
-  // Because the config object is a new object every time the component re-renders
-  const [persistConfig, setPersistConfig] = useState({
-    method: 'GET',
-  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(initialValue);
-  console.log(url, config);
 
-  const sendRequest = useCallback(async () => {
-    setPersistConfig(config);
-    try {
-      setIsLoading(true);
-      setError(null);
-      const responseData = await sendHttpRequest({ url, persistConfig });
-      if (!responseData) {
-        throw new Error('Request failed!');
+  const sendRequest = useCallback(
+    async (data) => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const responseData = await sendHttpRequest({
+          url,
+          config: { ...config, body: data },
+        });
+        if (!responseData) {
+          throw new Error('Request failed!');
+        }
+        setData(responseData);
+      } catch (error) {
+        setError(error.message || 'Something went wrong!');
+      } finally {
+        setIsLoading(false);
       }
-      setData(responseData);
-      console.log(responseData);
-    } catch (error) {
-      setError(error.message || 'Something went wrong!');
-    } finally {
-      setIsLoading(false);
-    }
-  }, [config, persistConfig, url]);
+    },
+    [config, url]
+  );
 
   useEffect(() => {
-    console.log('Checking config');
     if ((config && (config.method === 'GET' || !config.method)) || !config) {
       sendRequest();
     }
-    return () => {
-      setIsLoading(false);
-      setError(null);
-    };
   }, [config, sendRequest]);
 
   return {

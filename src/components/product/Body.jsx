@@ -9,7 +9,11 @@ const Body = () => {
     initialValue: [],
   });
   if (error) {
-    return <Error error={error} />;
+    return (
+      <div className='flex flex-col justify-center items-center w-full'>
+        <Error error={error} />
+      </div>
+    );
   }
   return (
     <>
