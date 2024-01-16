@@ -4,11 +4,10 @@ import { BadgeMinus, BadgePlus, CreditCard } from 'lucide-react';
 import { CartContext } from '@/context/CartContext';
 import ProceedDrawer from './ProceedDrawer';
 
-const ItemList = ({setModalOpen}) => {
+const ItemList = ({ setModalOpen }) => {
   const { state, cartFuncs } = useContext(CartContext);
   const { addToCart, removeFromCart } = cartFuncs;
   const [open, setOpen] = React.useState();
-  console.log(state);
   return (
     <>
       <ul className='mt-4 w-full'>
@@ -43,7 +42,11 @@ const ItemList = ({setModalOpen}) => {
         )}
       </p>
       {state?.cart.length > 0 ? (
-        <ProceedDrawer open={open} setOpen={setOpen} setModalOpen={setModalOpen}>
+        <ProceedDrawer
+          open={open}
+          setOpen={setOpen}
+          setModalOpen={setModalOpen}
+        >
           <div className='mt-5 w-fit mx-auto'>
             <div className='relative flex flex-col items-center '>
               <CreditCard

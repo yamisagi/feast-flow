@@ -1,6 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 
 import {
   Form,
@@ -14,11 +16,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 const formSchema = z.object({
+  email: z.string().email({
+    message: 'Please enter a valid email.',
+  }),
   name: z.string().min(5, {
     message: 'Name must be at least 5 characters.',
-  }),
-  surname: z.string().min(5, {
-    message: 'Surname must be at least 5 characters.',
   }),
   address: z.string().min(
     8,
@@ -30,19 +32,37 @@ const formSchema = z.object({
 });
 
 const ProceedForm = ({ openChanged, setModalOpen }) => {
+  const { state } = useContext(CartContext);
   const form = useForm({
     resolver: zodResolver(formSchema),
     mode: 'onBlur',
     defaultValues: {
+      email: '',
       name: '',
-      surname: '',
       address: '',
     },
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const prefix = import.meta.env.VITE_API_URL;
+    fetch(`${prefix}orders`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        order: {
+          items: state.cart,
+          customer: {
+            email: data.email,
+            name: data.name,
+            address: data.address,
+          },
+        },
+      }),
+    })
   };
+
   return (
     <Form {...form}>
       <form
@@ -60,12 +80,12 @@ const ProceedForm = ({ openChanged, setModalOpen }) => {
       >
         <FormField
           control={form.control}
-          name='name'
+          name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder='Name' {...field} />
+                <Input placeholder='Email' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -73,12 +93,12 @@ const ProceedForm = ({ openChanged, setModalOpen }) => {
         />
         <FormField
           control={form.control}
-          name='surname'
+          name='name'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Surname</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder='Surname' {...field} />
+                <Input placeholder='Name' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
