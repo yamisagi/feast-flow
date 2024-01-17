@@ -18,6 +18,14 @@
   </p>
 </div>
 
+<br/>
+
+## Do not forget to create a .env.local file in the root folder and add 👇🏻
+
+```sh
+VITE_API_URL=http://localhost:3000
+```
+
 ## How To Run Backend 🚀
 
 <br/>
