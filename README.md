@@ -6,17 +6,29 @@
   <h2 align="center">Feat Flow App</h2>
 
   <p align="center">
-    A food order app named Feat Flow I built with React and Tailwind CSS + SHACDN/UI, powered by Vite. And I'm using local backend server for the API. 
+    
   </p>
 
   <p>
-    <a href="https://github.com/yamisagi/yamisagi"><strong>About Me 💙»</strong></a>
+    <a href="https://github.com/yamisagi/yamisagi"><strong>About Me ♥️»</strong></a>
     <br />
     <br />
      <strong>📫 How to reach me</strong> <a href="https://twitter.com/_yamisagi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="_yamisagi" height="30" width="40" /></a>
     <a href="https://linkedin.com/in/yamisagi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="yamisagi" height="30" width="40" /></a>
   </p>
 </div>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+
+https://github.com/yamisagi/feast-flow/assets/84624853/31c50bc3-24d6-45fc-8822-139c7e1cc3b1
+
+
+<!-- add asset here later -->
+
+Feast Flow is a simple meal management application that incorporates technologies such as React, Tailwind CSS, shacdn/ui, Context, useReducer, custom hooks, and zod - react-hook-form. The application utilizes Tailwind CSS and shacdn/ui for a sleek design. Effective state management is ensured through React Context and useReducer, while zod and react-hook-form optimize form processes. Feast Flow reflects modern React development with its modular approach and user-friendly design.
 
 <br/>
 
@@ -92,13 +104,6 @@ VITE_API_URL=http://localhost:3000
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-<!-- add asset here later -->
-
-In this project, I am building a food order app named Feat Flow with React and Tailwind CSS + SHACDN/UI, powered by Vite. And I'm using local backend server for the API.
 
 <!-- ROADMAP -->
 
