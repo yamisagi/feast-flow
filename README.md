@@ -18,6 +18,36 @@
   </p>
 </div>
 
+## How To Run Backend 🚀
+
+<br/>
+
+- <strong>Clone the repo</strong>
+
+  ```sh
+  cd backend
+  ```
+
+- <strong>Install NPM packages</strong>
+
+  ```sh
+  npm install
+  ```
+
+- <strong>Run the project</strong>
+
+  ```sh
+  npm start app.js 
+  ```
+
+- <strong>Done! Local server is running on your machine 🚀</strong>
+
+  ```sh
+  http://localhost:3000/
+  ```
+
+- ### <strong>Let's go to the frontend! 🎉</strong>
+
 <br/>
 
 ## How To Run This Project 🚀
@@ -86,12 +116,8 @@ In this project, I am building a food order app named Feat Flow with React and T
 - [x] Implement Error & Loading fallbacks 
 - [x] Clean up the code 🧹
 - [x] Project Finished 🎉 
-- [ ] Deploy the app to Netlify 🚀
+- [x] Deploy the app to Vercel 🚀
 
-
-
-
-(Still working on it 🤗)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
