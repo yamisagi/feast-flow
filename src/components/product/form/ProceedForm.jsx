@@ -29,7 +29,7 @@ const formSchema = z.object({
 const ProceedForm = ({ openChanged, setModalOpen }) => {
   const { state, cartFuncs } = useContext(CartContext);
   const [successOpen, setSuccessOpen] = useState(false);
-  const { isLoading, error, data, sendRequest } = useHttp({
+  const { isLoading, error, sendRequest } = useHttp({
     url: `${import.meta.env.VITE_API_URL}/orders`,
     config: {
       method: 'POST',
@@ -75,11 +75,6 @@ const ProceedForm = ({ openChanged, setModalOpen }) => {
   if (error) {
     return <Error error={error} />;
   }
-
-  const onCloseFuncs = {
-    openChanged,
-    setModalOpen,
-  };
 
   return (
     <Form {...form}>

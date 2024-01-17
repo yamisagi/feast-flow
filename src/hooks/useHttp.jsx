@@ -7,7 +7,7 @@ const sendHttpRequest = async ({ url, config }) => {
       throw new Error(response.statusText || 'Request failed!');
     }
     const responseData = await response.json();
-    return responseData;
+    return { responseData, config };
   } catch (error) {
     throw new Error(error.message || 'Request failed!');
   }
@@ -22,13 +22,10 @@ const useHttp = ({ url, config, initialValue }) => {
     async (data) => {
       try {
         setIsLoading(true);
-        const responseData = await sendHttpRequest({
+        const { responseData, config: method } = await sendHttpRequest({
           url,
           config: { ...config, body: data },
         });
-        if (!responseData) {
-          throw new Error('Request failed!');
-        }
         setError(null);
         setData(responseData);
       } catch (error) {
