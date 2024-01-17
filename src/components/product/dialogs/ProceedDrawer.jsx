@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
@@ -11,7 +9,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
-import ProceedForm from './ProceedForm';
+import ProceedForm from '@/components/product/form/ProceedForm';
 
 const ProceedDrawer = ({ children, open, setOpen, setModalOpen }) => {
   return (

@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from '../ui/card';
+} from '../../ui/card';
 import { currencyFormat } from '@/util/format';
 
 const ProductCard = ({ item }) => {
@@ -20,7 +20,7 @@ const ProductCard = ({ item }) => {
       {/*  To override the default padding */}
       <CardHeader className='p-1'>
         <img
-          src={`${prefix + image}`}
+          src={`${prefix +'/'+ image}`}
           className='w-full h-64 object-cover rounded-lg'
         />
         <CardTitle className='text-xl font-bold text-center text-slate-900 mt-3'>

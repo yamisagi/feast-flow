@@ -39,9 +39,7 @@ const Modal = () => {
               ? 'Here are the items you added to your cart 😋'
               : 'Your cart is empty'}
           </DialogDescription>
-          <ItemList 
-            setModalOpen={setModalOpen}
-          />
+          <ItemList setModalOpen={setModalOpen} />
         </DialogHeader>
       </DialogContent>
     </Dialog>

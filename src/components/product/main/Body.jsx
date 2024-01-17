@@ -1,11 +1,11 @@
-import ProductCard from '@/components/product/ProductCard';
+import ProductCard from '@/components/product/main/ProductCard';
 import { ArrowBigUpDash } from 'lucide-react';
 import useHttp from '@/hooks/useHttp';
-import Shimmer from '@/components/product/Shimmer';
-import Error from '@/components/product/Error';
+import Shimmer from '@/components/product/main/Shimmer';
+import Error from '@/components/product/main/Error';
 const Body = () => {
   const { isLoading, error, data } = useHttp({
-    url: `${import.meta.env.VITE_API_URL}meals`,
+    url: `${import.meta.env.VITE_API_URL}/meals`,
     initialValue: [],
   });
   if (error) {
@@ -27,7 +27,7 @@ const Body = () => {
             ))}
           </ul>
           <button
-            className='fixed bottom-4 right-4 bg-zinc-900 text-white rounded-full p-2 shadow-md hover:bg-zinc-800 transition duration-300 ease-in-out shadow-slate-50'
+            className='up-button'
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}

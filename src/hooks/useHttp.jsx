@@ -7,7 +7,6 @@ const sendHttpRequest = async ({ url, config }) => {
       throw new Error(response.statusText || 'Request failed!');
     }
     const responseData = await response.json();
-    console.log(responseData);
     return responseData;
   } catch (error) {
     throw new Error(error.message || 'Request failed!');
@@ -33,7 +32,6 @@ const useHttp = ({ url, config, initialValue }) => {
         setError(null);
         setData(responseData);
       } catch (error) {
-        console.log('error', error);
         setError(error.message || 'Something went wrong!');
       } finally {
         setIsLoading(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './Modal';
+import Modal from '@/components/product/dialogs/Modal';
 const Header = () => {
   return (
     <header className='nav flex h-16 p-11 bg-zinc-900/50 sticky top-5 z-10 m-5 backdrop-blur-md rounded-3xl shadow-md shadow-slate-50'>
